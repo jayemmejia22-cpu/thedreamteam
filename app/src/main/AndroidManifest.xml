@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -22,6 +23,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".StudentOneActivity"
+            android:exported="false"
+            android:label="Student 1"
+            android:theme="@android:style/Theme.Material.Light" />
+
+        <activity
+            android:name=".StudentTwoActivity"
+            android:exported="false"
+            android:label="Student 2"
+            android:theme="@android:style/Theme.Material.Light" />
+
+        <activity
+            android:name=".StudentThreeActivity"
+            android:exported="false"
+            android:label="Student 3"
+            android:theme="@android:style/Theme.Material.Light" />
+
+        <activity
+            android:name=".StudentFourActivity"
+            android:exported="false"
+            android:label="Student 4"
+            android:theme="@android:style/Theme.Material.Light" />
+
+        <activity
+            android:name=".StudentFiveActivity"
+            android:exported="false"
+            android:label="Student 5"
+            android:theme="@android:style/Theme.Material.Light" />
+
     </application>
 
 </manifest>

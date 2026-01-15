@@ -8,7 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-class StudentThreeActivity : ComponentActivity() {
+class StudentTwoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -18,8 +18,8 @@ class StudentThreeActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     StudentScreen(
-                        studentName = "Alex Johnson",
-                        studentId = "ST003",
+                        studentName = "Jane Smith",
+                        studentId = "ST002",
                         onBackClick = { finish() }
                     )
                 }
