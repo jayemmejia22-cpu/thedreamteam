@@ -78,8 +78,13 @@ fun FiveButtonsScreen(onButton1Click: () -> Unit) {
         }
 
         Button(
-            onClick = { clickedButton = "Button 3" },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            onClick = {
+                clickedButton = "Button 3"
+                onButton1Click()
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         ) {
             Text("Button 3")
         }
@@ -102,6 +107,19 @@ fun FiveButtonsScreen(onButton1Click: () -> Unit) {
 
 @Composable
 fun BackButtonScreen(onBackClick: () -> Unit) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Button(onClick = onBackClick) {
+            Text("Back")
+        }
+    }
+}
+
+
+@Composable
+fun ButtonThreeScreen(onBackClick: () -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center

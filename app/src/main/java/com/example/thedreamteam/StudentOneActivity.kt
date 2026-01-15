@@ -1,3 +1,5 @@
+@file:JvmName("StudentThreeActivityKt")
+
 package com.example.backbuttonscreen
 
 import android.os.Bundle
