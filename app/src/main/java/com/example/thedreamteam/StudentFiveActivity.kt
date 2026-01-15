@@ -18,8 +18,8 @@ class StudentFiveActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     StudentScreen(
-                        studentName = "David Brown",
-                        studentId = "ST005",
+                        studentName = "Alex Johnson",
+                        studentId = "ST003",
                         onBackClick = { finish() }
                     )
                 }
