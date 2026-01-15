@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,7 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FiveButtonsScreen()
+                    AppScreen()
                 }
             }
         }
@@ -30,7 +27,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun FiveButtonsScreen() {
+fun AppScreen() {
+    var showSecondScreen by remember { mutableStateOf(false) }
+
+    if (showSecondScreen) {
+        BackButtonScreen {
+            showSecondScreen = false
+        }
+    } else {
+        FiveButtonsScreen(
+            onButton1Click = { showSecondScreen = true }
+        )
+    }
+}
+
+@Composable
+fun FiveButtonsScreen(onButton1Click: () -> Unit) {
     var clickedButton by remember { mutableStateOf("None") }
 
     Column(
@@ -47,7 +59,10 @@ fun FiveButtonsScreen() {
         )
 
         Button(
-            onClick = { clickedButton = "Button 1" },
+            onClick = {
+                clickedButton = "Button 1"
+                onButton1Click()
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -57,38 +72,42 @@ fun FiveButtonsScreen() {
 
         Button(
             onClick = { clickedButton = "Button 2" },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         ) {
             Text("Button 2")
         }
 
         Button(
             onClick = { clickedButton = "Button 3" },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         ) {
             Text("Button 3")
         }
 
         Button(
             onClick = { clickedButton = "Button 4" },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         ) {
             Text("Button 4")
         }
 
         Button(
             onClick = { clickedButton = "Button 5" },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         ) {
             Text("Button 5")
+        }
+    }
+}
+
+@Composable
+fun BackButtonScreen(onBackClick: () -> Unit) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Button(onClick = onBackClick) {
+            Text("Back")
         }
     }
 }
